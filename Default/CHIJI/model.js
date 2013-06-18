@@ -10,11 +10,11 @@
 
 var model = Backbone.Model.extend({
 	validate: function(reta) {
-		if (!(reta.status < 300 && reta.status >= 200)) {
-			return reta.info || ("[" + reta.status|| 000 + "] ERROR without any error.");
+		if (reta.status && !(reta.status < 300 && reta.status >= 200)) {
+			return reta.info || ("[" + reta.status || 000 + "] ERROR without any error.");
 		};
 	},
-	parse: function(reta) {
+	parse: function(reta, options) {
 		return reta.data;
 	}
 });
